@@ -18,6 +18,7 @@ int main() {
     insertar(nuevatabla,"carlos");
     insertar(nuevatabla,"raul");
     insertar(nuevatabla,"franco");
+    insertar(nuevatabla,"juan");
 
     imprimir(nuevatabla);
 

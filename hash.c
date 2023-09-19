@@ -33,13 +33,25 @@ int hash (const char * nombre) {
 void insertar (Nodo * tablaDeHash[], char * nombre) {
 
     int posicion = hash(nombre);
-    Nodo * nodoAInsertar = newNodo(nombre);//creo el nodo a insertar
+    Nodo *nodoAInsertar = newNodo(nombre);
 
-    if(tablaDeHash[posicion] == NULL){//el nodo no esta en la tabla
+    if (tablaDeHash[posicion] == NULL) {
         tablaDeHash[posicion] = nodoAInsertar;
-    }
-    else{
-        nodoAInsertar->sig = tablaDeHash[posicion];//persisto la tabla detras del nodo anterior
+    } else {
+        Nodo *actual = tablaDeHash[posicion];
+        Nodo *anterior = NULL;
+
+        while (actual != NULL) {
+            if (strcmp(actual->nombre, nombre) == 0) {
+                // El nombre ya existe, no lo insertamos nuevamente
+                free(nodoAInsertar); // Liberamos el nodo que no se usará
+                return;
+            }
+            anterior = actual;
+            actual = actual->sig;
+        }
+
+        nodoAInsertar->sig = tablaDeHash[posicion]; // Enlazamos el nuevo nodo al principio
         tablaDeHash[posicion] = nodoAInsertar;
     }
 }
@@ -49,8 +61,13 @@ void imprimir (Nodo * tablaDeHash[]) {
     printf("Tabla de Hash:\n");
 
     for(int i = 0 ; i < SIZE ; i++){
-        if(tablaDeHash[i]!=NULL){
-            printf("En la posicion %d se encuentra en el nombre %s\n",i,tablaDeHash[i]->nombre);
+        if (tablaDeHash[i] != NULL){
+            Nodo * aux = tablaDeHash[i];
+            while (aux!= NULL){
+                printf("En la posicion %d se encuentra en el nombre %s\n",i, aux->nombre);
+                aux = aux->sig;
+            }
         }
+
     }
 }
