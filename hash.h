@@ -14,7 +14,7 @@ typedef struct nodo{
 }Nodo;
 
 Nodo * newNodo (char * nombre);//funcion para crear nodos
-int hash (const char * nombre);//funcion de hash
+int hash ( const char * nombre);//funcion de hash
 
 void insertar (Nodo * tablaDeHash[], char * nombre);//inserta los nombres en la tabla
 void imprimir (Nodo * tablaDeHash[]);//imprime la tabla

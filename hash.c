@@ -41,6 +41,10 @@ void insertar (Nodo * tablaDeHash[], char * nombre) {
         tablaDeHash[posicion] = nodoAInsertar;
     }
     else{
+        int i=1;
+        while (tablaDeHash[(posicion+i)%SIZE] != NULL){//esta linea busca la posicion vacia manteniendo la posicion dentro de la tabla
+            i++;
+        }
         nodoAInsertar->sig = tablaDeHash[posicion];//persisto la tabla detras del nodo anterior
         tablaDeHash[posicion] = nodoAInsertar;
    }
@@ -53,6 +57,6 @@ void imprimir (Nodo * tablaDeHash[]) {
     for(int i = 0 ; i < SIZE ; i++){
 
         if(tablaDeHash[i]!=NULL)
-        printf("En la posicion %d se encuentra en el nombre %s",tablaDeHash[i],tablaDeHash[i]->nombre);
+        printf("En la posicion %d se encuentra en el nombre %s\n",i,tablaDeHash[i]->nombre);
     }
 }

@@ -6,6 +6,10 @@
 int main() {
     Nodo * nuevatabla[SIZE];
 
+    for (int i = 0; i < SIZE; i++) { //inicializo toda la tabla en NULL;
+        nuevatabla[i] = NULL;
+    }
+
     insertar(nuevatabla,"juan");
     insertar(nuevatabla,"maria");
     insertar(nuevatabla,"carlos");
