@@ -8,7 +8,7 @@
 
 typedef struct nodo{
 
-    char * nombre;
+    char nombre[50];
     struct nodo * sig;
 
 }Nodo;

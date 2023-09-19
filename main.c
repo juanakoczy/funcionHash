@@ -5,6 +5,9 @@
 
 int main() {
     Nodo * nuevatabla[SIZE];
+    for (int i = 0; i < SIZE; i++) {
+        nuevatabla[i] = NULL;
+    }
 
     for (int i = 0; i < SIZE; i++) { //inicializo toda la tabla en NULL;
         nuevatabla[i] = NULL;
