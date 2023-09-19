@@ -62,9 +62,9 @@ void imprimir (Nodo * tablaDeHash[]) {
 
     for(int i = 0 ; i < SIZE ; i++){
         if (tablaDeHash[i] != NULL){
-            Nodo * aux = tablaDeHash[i];
-            while (aux!= NULL){
-                printf("En la posicion %d se encuentra en el nombre %s\n",i, aux->nombre);
+            Nodo *aux = tablaDeHash[i];
+            while (aux != NULL) {
+                printf("En la posicion %d se encuentra en el nombre %s\n", i, aux->nombre);
                 aux = aux->sig;
             }
         }
